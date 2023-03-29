@@ -1,0 +1,28 @@
+.presentacion{
+    text-align :center;
+    color: rgb(0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+    padding-top: 5px;
+}
+
+.fondo{
+    background-image: url("/img/fondo.jpg");
+}
+
+.contactame{
+    text-align :center;
+    color: rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.contactame:hover{
+    background-color: rgb(238, 255, 0);
+}
+
+li {
+    text-shadow: 0 0 10px #FF0000;
+  }
+
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
