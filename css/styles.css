@@ -1,3 +1,5 @@
+
+
 .presentacion{
     text-align :center;
     color: rgb(0, 0, 0);
@@ -6,7 +8,9 @@
 }
 
 .fondo{
-    background-image: url("/img/fondo.jpg");
+    background-color: #52ACFF;
+    background-image: linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%);
+    
 }
 
 .contactame{
@@ -25,4 +29,8 @@ li {
 
 p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h2{
+    font-family: 'Urbanist', sans-serif;
 }
