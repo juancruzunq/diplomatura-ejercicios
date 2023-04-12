@@ -1,0 +1,43 @@
+.cuadrado {
+	width: 300px;
+	height: 300px;
+	border: 2px solid black;
+	background: none;
+	display: flex;
+	align-items: flex-end;	
+	flex-direction : column-reverse;
+  }
+  
+  .item{
+	color: aliceblue;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	padding: 0px;
+	
+  }
+  .item:nth-child(1)  {
+	width: 140px;
+	height: 100px;
+	background-color: green;
+	margin: 0px;
+	
+  }
+  
+  .item:nth-child(2)  {
+	width: 140px;
+	height: 100px;
+	background-color: blue;
+	margin: 0px;
+	
+  }
+  
+  .item:nth-child(3) {
+	width: 140px;
+	height: 100px;
+	background-color: red;
+	margin: 0px;
+	
+	
+  }
+  
