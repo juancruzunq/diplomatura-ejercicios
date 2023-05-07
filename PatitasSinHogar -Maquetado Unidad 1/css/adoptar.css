@@ -84,6 +84,7 @@ p {
     display: flex;
     gap: 32px;
     align-items: center;
+    background-color: rgb(226, 203, 172);
 }
 
 .adopciones .info h4{
