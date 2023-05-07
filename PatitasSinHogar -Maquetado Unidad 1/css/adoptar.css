@@ -1,0 +1,96 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+header {
+  background-color: rgb(200, 250, 135);
+}
+
+header h1 {
+    color: rgb(0, 0, 0);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50px;
+    font-weight: 100;
+    font-style: oblique;
+    display: inline-block;
+    position: relative;
+    bottom: 20px;
+    margin-left: 150px;
+}
+
+nav{
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    flex-grow: 1;
+}
+
+nav ul li a{
+  color: black;
+  padding: 3px 6px;
+  display: block;
+  text-align: center;
+}
+
+nav ul li a.activo{
+   background-color: #aff50c;
+   border-radius: 50%;
+
+  }
+
+nav ul li a:hover{
+   background-color: #aff50c;
+   border-radius: 50%;
+
+}
+
+footer {
+    background-color: rgba(58, 68, 68, 0.288);
+    clear: both;
+    color: #333;
+    text-align: center;
+    margin-top: 10%;
+}
+.holder{
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+h2{
+    color: rgb(73, 26, 5);
+    font-weight: 400;
+    font-family: 'Bangers', cursive;
+    text-align: center;
+}
+
+p {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: #000000;
+}
+
+.adopciones{
+    border: 1px solid indigo;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 16px 0;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.adopciones .info h4{
+    color: indigo;
+    font-size: 40px;
+    font-family: 'Shadows Into Light', cursive;
+    border-bottom: 1px solid indigo;
+    padding-bottom: 10px;
+}
+
