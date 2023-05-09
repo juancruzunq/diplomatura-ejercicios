@@ -1,0 +1,118 @@
+<!DOCTYPE <!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PatitasSinHogar</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-AB0uG+YDxknUSC8MDC+iLMokkN37gb+1U/eHWPtI5m8d1gPIfWl/K+pYQh35zkRnilvSqXkWwy+iOAxZfu4ag=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <header>
+        <div class="holder">
+            <img src="img/logo.png" width="100" alt="PatitasSinHogar">
+            <h1>PatitasSinHogar</h1>
+        </div>
+        <nav>
+            <div class="holder">
+                <ul>
+                    <li><a  href="index.html">Inicio</a></li>
+                    <li><a href="adopciones.html">Adoptar un animal</a></li>
+                    <li><a class="activo" href="contacto.html">Contacto y Redes</a></li>
+                    <li><a href="registrar.html">Buscar familia</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="holder">
+        <div class="container">            
+            <div class="contacto">
+                <form>
+                    <h1> Contacto</h1>
+                    <fieldset>
+                        <legend><span class="number">1</span> Informacion Personal</legend>
+
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre">
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="user_email">
+
+                        <label for="ciudad">Ciudad:</label>
+                        <input type="text" id="ciudad">
+
+                        <label for="numero">Telefono:</label>
+                        <input type="number" id="numero">
+
+                        <label>Edad:</label>
+                        <input type="radio" id="mayor" value="mayor18" name="user_age"><label for="mayor18"
+                            class="light">Mayor de 18</label><br>
+                        <input type="radio" id="menor" value="menor18" name="user_age"><label for="menor18"
+                            class="light">Menor de 18</label>
+
+                    </fieldset>
+                    <fieldset>
+
+                        <legend><span class="number">2</span> Informacion Adopción</legend>
+
+                        <label for="bio">Porque te gustaria adoptar?</label>
+                        <textarea id="descripcion" name="descripcion"></textarea>
+                        <label for="mascota">Tipo de Mascota:</label>
+                        <select id="mascota" name="mascota">
+                            <optgroup label="Felino">
+                                <option value="gato_adulto">Gato Adulto</option>
+                                <option value="gato_joven">Gato Joven</option>
+                                <option value="gato_bebe">Gato Bebe</option>
+                            </optgroup>
+                            <optgroup label="Canino">
+                                <option value="perro_adulto">Perro Adulto</option>
+                                <option value="perro_joven">Perro Joven</option>
+                                <option value="cachorro">Cachorro</option>
+                            </optgroup>
+                        </select>
+                        <label>Le molestaria que la mascota adoptar tenga alguna dificultad/discapacidad?</label>
+                        <input type="checkbox" id="si" value="si" name="si"><label class="light"
+                            for="si_disc">Si</label><br>
+                        <input type="checkbox" id="no" value="no" name="no"><label class="light"
+                            for="no_disc">No</label><br>
+                    </fieldset>
+
+                    <button type="submit">Enviar</button>
+
+                </form>
+            </div>
+            <div class="redes">
+                <h1>Nuestras Redes</h1>
+                <div class="imagen"><img src="img/facebook.svg" width="20" alt="Icono Facebook"><a href="https://www.facebook.com/">Facebook</a></div>
+                <div class="imagen"><img src="img/whatsapp.svg" width="20" alt="Icono Whatsapp"><a href="https://web.whatsapp.com/">Whatsapp</a></div>
+                <div class="imagen"><img src="img/instagram.svg" width="20" alt="Icono Instagram"><a href="https://www.instagram.com/">Instagram</a></div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Diseñado por Juan Cruz Sanchez - &copy;2023</p>
+    </footer>
+</body>
+
+</html>

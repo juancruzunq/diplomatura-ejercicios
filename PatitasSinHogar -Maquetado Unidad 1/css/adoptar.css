@@ -59,9 +59,11 @@ footer {
     text-align: center;
     margin-top: 10%;
 }
-.holder{
+.holder {
     max-width: 960px;
     margin: 0 auto;
+    font-family: 'Nunito', sans-serif;
+    color: #384047;
 }
 
 h2{
@@ -84,7 +86,7 @@ p {
     display: flex;
     gap: 32px;
     align-items: center;
-    background-color: rgb(226, 203, 172);
+    background-color: rgba(216, 208, 198, 0.253);
 }
 
 .adopciones .info h4{

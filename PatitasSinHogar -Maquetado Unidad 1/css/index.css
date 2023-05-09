@@ -59,9 +59,11 @@ footer {
     text-align: center;
     margin-top: 10%;
 }
-.holder{
+.holder {
     max-width: 960px;
     margin: 0 auto;
+    font-family: 'Nunito', sans-serif;
+    color: #384047;
 }
 
 h2{
