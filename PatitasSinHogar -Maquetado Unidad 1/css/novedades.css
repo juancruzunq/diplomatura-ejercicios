@@ -1,0 +1,100 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+header {
+  background-color: rgb(200, 250, 135);
+}
+
+header h1 {
+    color: rgb(0, 0, 0);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50px;
+    font-weight: 100;
+    font-style: oblique;
+    display: inline-block;
+    position: relative;
+    bottom: 20px;
+    margin-left: 150px;
+}
+
+nav{
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    flex-grow: 1;
+}
+
+nav ul li a{
+  color: black;
+  padding: 3px 6px;
+  display: block;
+  text-align: center;
+}
+
+nav ul li a.activo{
+   background-color: #aff50c;
+   border-radius: 50%;
+
+  }
+
+nav ul li a:hover{
+   background-color: #aff50c;
+   border-radius: 50%;
+
+}
+
+footer {
+    background-color: rgba(58, 68, 68, 0.288);
+    clear: both;
+    color: #333;
+    text-align: center;
+    margin-top: 10%;
+}
+.holder {
+    max-width: 960px;
+    margin: 0 auto;
+    font-family: 'Nunito', sans-serif;
+    color: #384047;
+}
+
+h2{
+    color: rgb(73, 26, 5);
+    font-weight: 400;
+    font-family: 'Bangers', cursive;
+    text-align: center;
+}
+
+p {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: #000000;
+}
+
+.veterinarias {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .veterinaria img {
+    width: 350px;
+  }
+
+  .veterinaria h3 {
+    margin-top: 10px;
+  }
+
+  .veterinaria a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+ }
