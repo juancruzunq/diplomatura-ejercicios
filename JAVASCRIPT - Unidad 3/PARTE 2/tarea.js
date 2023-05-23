@@ -18,7 +18,7 @@ function contarCaracteres() {
 
 
 function alumnosAprobados(alumnos){
-  const alumnosAprobados = alumnos.filter(alumno => alumno.nota >= 7).map(alumno => alumno);
+  const alumnosAprobados = alumnos.filter(alumno => alumno.nota >= 7);
   return alumnosAprobados ;
 }
 
