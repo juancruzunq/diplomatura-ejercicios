@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea</title>
+    <style>
+        .cuadrado {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;           
+        }
+        .contador {
+           color: blueviolet;     
+        }
+        #cuadrado1 {
+            background-color: rgb(255, 0, 0);
+        }
+        #cuadrado2 {
+           background-color: rgb(0, 255, 0);
+        }
+        #cuadrado3 {
+            background-color: rgb(0, 17, 255);
+        }
+    </style>   
+        <script src="tarea.js"></script> 
+</head>
+
+<body>
+    <div class="cuadrado" id="cuadrado1" onclick=" cambiarColorDeFondo('yellow');"></div>
+    <div class="cuadrado" id="cuadrado2" onclick=" cambiarColorDeFondo('black');"></div>
+    <div class="cuadrado" id="cuadrado3" onclick=" cambiarColorDeFondo('pink');"></div>
+    <div class="contador" >
+        <textarea id="miTextarea"></textarea>
+        <p>Contador: <span id="contador">0</span></p>
+    </div>
+    <script>
+        contarCaracteres()    
+    </script>
+</body>
+
+</html>
