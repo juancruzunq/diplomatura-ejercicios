@@ -1,11 +1,12 @@
 import React from "react";
-import logo from "../../images/logo.png";
+import '../../styles/components/layout/header.css'
 const Header = (props) => {
     return (
         <header>
-            <div className="holder">
-            <img src={logo} width="100" alt="Transportes X"/>
+            <div className="header-container">              
+                <div className="header-tittle">
                 <h1>PatitasSinHogar </h1>
+                </div>
             </div>
         </header>
     );

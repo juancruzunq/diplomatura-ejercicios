@@ -1,18 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import '../../styles/components/layout/nav.css';
 
 const Nav = (props) => {
     return (
+        <div className="nav-container">
         <nav>
-            <div>
+            <div className="nav-items">
                 <ul>
-                    <li><Link to="/">Inicio</Link></li>
-                    <li><Link to="/adoptar">Adoptar Patita</Link></li>
-                    <li><Link to="/publicar">Publicar Patita</Link></li>
-                    <li><Link to="/contacto">Contacto y novedades</Link></li>
+                    <li><NavLink to="/">Inicio</NavLink></li>
+                    <li><NavLink to="/adoptar">Adoptar Patita</NavLink></li>
+                    <li><NavLink to="/publicar">Publicar Patita</NavLink></li>
+                    <li><NavLink to="/contacto">Contacto y novedades</NavLink></li>
                 </ul>
             </div>
         </nav>
+        </div>
     );
 }
 

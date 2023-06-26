@@ -1,19 +1,24 @@
-import React from "react";
 
+import React, { useState, useEffect } from 'react';
+import '../styles/components/pages/homePage.css';
+import Imagen from '../images/pet.jpg'
 const HomePage = (props) => {
+    const nombres = ['Juan Cruz' , 'Flavia','Alejandra' , 'Invitado']
+    const[nombre,setNombre] = useState(nombres[Math.floor(Math.random() * nombres.length)]);
     return (
         <main className="main">
-            <div className="image-container">
-                <section className="bienvenidos-container">
-                    <h2  className="titulos-home">Bienvenidos</h2>
-                    <p  className="parrafo-home">En esta pagina hacemos los sueños de muchas mascotas realidad , encontrar una familia ♥<br/>
-                    Dentro de la seccion "Adoptar un animal" podes empezar a cambiar la vida de una mascota que se
-                    encuentra sin hogar .<br/> 
-                    Te ayudamos durante todo el proceso , desde que viste la mascota que queres en tu familia , hasta que se logra la adopcion tan esperada 
-                    ,todo para que la experiencia sea saludable y satisfactoria. <br/>
+            <div >
+                <section >
+                    <h2 className="titulos-home">Bienvenido/a {nombre} !</h2>
+                    <p className="parrafo-home">En esta pagina hacemos los sueños de muchas mascotas realidad , encontrar una familia ♥<br />
+                        PatitasSinHogar es un proyecto destinado a la adopcion de mascotas.<br /> Desde nuestro sitio web vas a poder buscar , elegir ,
+                        y completar la adopcion en unos simples pasos <br />
                     </p>
                     <h2 className="titulos-home">Adoptar nunca fue tan facil</h2>
                 </section>
+                <div className="imagen" >
+                    <img src={Imagen} alt="Logo de pets" width="100%" />
+                </div>
             </div>
         </main>
     );

@@ -1,0 +1,61 @@
+.main {
+    max-width: 960px;
+    margin: 0 auto;
+    font-family: 'Nunito', sans-serif;
+    color: #384047;
+}
+
+h2{
+    color: rgb(73, 26, 5);
+    font-weight: 400;
+    font-family: 'Bangers', cursive;
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 30px;
+}
+
+.header-container h1 {
+    color: rgb(255, 255, 255);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 90px;
+    text-align: center;
+    margin-top: 70px;
+}
+
+p {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: #000000;
+}
+
+.card img{
+    size: 30px;
+}
+
+
+
+.adopciones-card-info h4{
+    color: indigo;
+    font-size: 40px;
+    font-family: 'Shadows Into Light', cursive;
+    border-bottom: 1px solid indigo;
+    padding-bottom: 50px;
+}
+
+.card{
+    border: 1px solid indigo;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 16px 0;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    background-color: rgba(216, 208, 198, 0.253);
+}
+
+.adopciones-card-info h4{
+    color: indigo;
+    font-size: 40px;
+    font-family: 'Shadows Into Light', cursive;
+    border-bottom: 1px solid indigo;
+    padding-bottom: 10px;
+}
