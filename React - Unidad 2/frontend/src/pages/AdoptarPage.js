@@ -4,15 +4,15 @@ import Imagen1 from '../images/adopciones/kiza.png'
 import Imagen2 from '../images/adopciones/leki.png'
 import Imagen3 from '../images/adopciones/milo-leyla.png'
 import '../styles/components/pages/adoptarAnimalPage.css';
-const AdoptarAnimal = (props) => {
+const AdoptarAnimal = (props) => {   
     return (
-        <main className="main">
+            <div>
             <div className="title-container">
                 <h2><img src={Icon} width="50" alt="icon-cat" />Buscamos una familia<img src={Icon} width="50" alt="icon-cat" /> </h2>
             </div>
             <div className="adopciones-cards">
                 <div className="card">
-                    <img src={Imagen1} alt="Adopta no compres" width="400" />
+                    <img src={Imagen1} alt="Adopta no compres" width="300" />
                     <div className="adopciones-card-info">
                         <h4>Leki</h4>
                         <p>Gata hembra,aprox 2 meses en adopción responsable, tanto ella como sus otros hermanitos victimas de
@@ -23,7 +23,7 @@ const AdoptarAnimal = (props) => {
                     </div>
                 </div>
                 <div className="card">
-                    <img src={Imagen2} alt="Adopta no compres" width="400" />
+                    <img src={Imagen2} alt="Adopta no compres" width="300" />
                     <div className="adopciones-card-info">
                         <h4>Kiza</h4>
                         <p>Les presentamos a la nueva integrante de patitas, ella es KIZA.
@@ -34,7 +34,7 @@ const AdoptarAnimal = (props) => {
                     </div>
                 </div>
                 <div className="card">
-                    <img src={Imagen3} alt="Adopta no compres" width="400" />
+                    <img src={Imagen3} alt="Adopta no compres" width="300" />
                     <div className="adopciones-card-info">
                         <h4>Milo & Leyla</h4>
                         <p>Ellos son Matu (macho, adoptado) y Mawi (hembra, adoptada ) dos hermanitos que rescatamos de la casa de Mariela. Llegaron con mucho miedo, desconfianza y bajos de peso.
@@ -43,8 +43,9 @@ const AdoptarAnimal = (props) => {
                         </p>
                     </div>
                 </div>
+                
             </div>
-        </main>
+            </div>
     );
 }
 

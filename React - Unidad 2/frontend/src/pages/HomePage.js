@@ -17,7 +17,7 @@ const HomePage = (props) => {
                     <h2 className="titulos-home">Adoptar nunca fue tan facil</h2>
                 </section>
                 <div className="imagen" >
-                    <img src={Imagen} alt="Logo de pets" width="100%" />
+                    <img src={Imagen} alt="Logo de pets" width="900" />
                 </div>
             </div>
         </main>

@@ -1,9 +1,4 @@
-.main {
-    max-width: 960px;
-    margin: 0 auto;
-    font-family: 'Nunito', sans-serif;
-    color: #384047;
-}
+
 
 h2{
     color: rgb(73, 26, 5);
@@ -27,18 +22,14 @@ p {
    color: #000000;
 }
 
-.card img{
-    size: 30px;
-}
 
-
-
-.adopciones-card-info h4{
-    color: indigo;
-    font-size: 40px;
-    font-family: 'Shadows Into Light', cursive;
-    border-bottom: 1px solid indigo;
-    padding-bottom: 50px;
+.adopciones-cards{
+   gap: 160px; 
+   display: flex;
+   flex-wrap: wrap;
+   margin: 80px;
+   font-family: 'Nunito', sans-serif;
+   color: #384047;
 }
 
 .card{
@@ -46,10 +37,14 @@ p {
     border-radius: 10px;
     padding: 16px;
     margin: 16px 0;
-    display: flex;
+    text-align: center;
     gap: 32px;
+    width:450px;
     align-items: center;
     background-color: rgba(216, 208, 198, 0.253);
+}
+.card img {
+    width: 230px;
 }
 
 .adopciones-card-info h4{
@@ -58,4 +53,5 @@ p {
     font-family: 'Shadows Into Light', cursive;
     border-bottom: 1px solid indigo;
     padding-bottom: 10px;
+    
 }
