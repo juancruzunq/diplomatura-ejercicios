@@ -8,7 +8,8 @@ const PublicarPage = (props) => {
     const [edad, setEdad] = useState(0);
     const [castrado, setCastrado] = useState(false);
     const [imagen, setImagen] = useState(null);
-    const [vacunado, setVacunado] = useState(false);
+    const [descripcion, setDescripcion] = useState('');
+    const [tipo, setTipo] = useState('Gato');
 
     const handleNombreChange = (event) => {
         setNombre(event.target.value);
@@ -26,8 +27,12 @@ const PublicarPage = (props) => {
         setCastrado(event.target.checked);
     };
 
-    const handleVacunadoChange = (event) => {
-        setVacunado(event.target.checked);
+    const handleTipoChange = (event) => {
+        setTipo(event.target.value);
+    };
+
+    const handleDescripcionChange = (event) => {
+        setDescripcion(event.target.value);
     };
 
     const handleImagenChange = (event) => {
@@ -41,13 +46,27 @@ const PublicarPage = (props) => {
         setEdad(0);
         setCastrado(false);
         setImagen(null);
-        setVacunado(false);
+        setDescripcion('');
+        setTipo('Gato');
     };
     return (
-        
+
         <form onSubmit={handleSubmit} className="custom-form">
             <div className="redes-title">
                 <h2>Publicar Patita</h2>
+            </div>
+            <div className="mb-3">
+                <label htmlFor="imagen" className="form-label">
+                    Imagen
+                </label>
+                <input
+                    type="file"
+                    className="form-control"
+                    id="imagen"
+                    accept="image/*"
+                    onChange={handleImagenChange}
+                    required
+                />
             </div>
             <div className="mb-3">
                 <label htmlFor="nombre" className="form-label">
@@ -97,42 +116,43 @@ const PublicarPage = (props) => {
                     onChange={handleCastradoChange}
                 />
                 <label className="form-check-label" htmlFor="castrado">
-                    Castrado
-                </label>
-            </div>
-            <div className="mb-3 form-check">
-                <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="vacunado"
-                    checked={vacunado}
-                    onChange={handleVacunadoChange}
-                />
-                <label className="form-check-label" htmlFor="vacunado">
-                    Vacunado
+                    Castrado o Vacunado
                 </label>
             </div>
             <div className="mb-3">
-                <label htmlFor="imagen" className="form-label">
-                    Imagen
+                <label htmlFor="tipo" className="form-label">
+                    Tipo
                 </label>
-                <input
-                    type="file"
+                <select
+                    id="tipo"
+                    value={tipo}
+                    onChange={handleTipoChange}
                     className="form-control"
-                    id="imagen"
-                    accept="image/*"
-                    onChange={handleImagenChange}
-                    required
+                >
+                    <option  value="Gato">Gato</option>
+                    <option  value="Perro">Perro</option>
+                </select>
+            </div>
+            <div className="mb-3">
+                <label htmlFor="descripcion" className="form-label">
+                    Descripción
+                </label>
+                <textarea
+                    id="descripcion"
+                    value={descripcion}
+                    onChange={handleDescripcionChange}
+                    className="form-control"
+                    style={{ height: '150px' }}
                 />
             </div>
             <button type="submit" className="btn btn-primary btn-violet">
                 Enviar
-            </button> 
+            </button>
             <div className='imagen-form'>
-            <img src={Huellita} alt='Huellita' width="50" />
-            </div>          
+                <img src={Huellita} alt='Huellita' width="50" />
+            </div>
         </form>
-        
+
     );
 };
 

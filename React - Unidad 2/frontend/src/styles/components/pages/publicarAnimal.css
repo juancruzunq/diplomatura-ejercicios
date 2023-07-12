@@ -5,6 +5,14 @@
   /* Cambia el color del borde de los campos de texto, número, archivo y checkbox */
   border-color: violet;
 }
+#descripcion{
+  /* Cambia el color del borde de los campos de texto, número, archivo y checkbox */
+  border-color: violet;
+}
+#tipo{
+  /* Cambia el color del borde de los campos de texto, número, archivo y checkbox */
+  border-color: violet;
+}
 
 .custom-form .form-check-input:checked {
   /* Cambia el color del checkbox cuando está seleccionado */
