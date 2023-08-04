@@ -5,7 +5,7 @@ import Nav from './components/layout/Nav';
 import PublicarPage from "./pages/PublicarPage";
 import HomePage from "./pages/HomePage";
 import AdoptarPage from "./pages/AdoptarPage";
-import ContactoPage from "./pages/ContactoPage";
+import FavoritosPage from "./pages/FavoritosPage";
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<HomePage/>}> </Route>
           <Route path="adoptar" element={<AdoptarPage/>}> </Route>
           <Route path="publicar" element={<PublicarPage/>}> </Route>
-          <Route path="contacto" element={<ContactoPage/>}> </Route>
+          <Route path="favoritos" element={<FavoritosPage/>}> </Route>
         </Routes>
       </BrowserRouter>
       <Footer/>
