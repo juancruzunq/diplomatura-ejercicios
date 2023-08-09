@@ -1,0 +1,18 @@
+
+
+DELETE
+-Crear pagina mis publicados , donde van a estar los animales que yo publique . Va a tener un boton para eliminar 
+Crear tabla publicados
+
+READ 
+-Publicados  , va a contener los animales publicados . Con boton de whatsapp para "contactarse" . Cambio de estilos si es necesario
+
+UPDATE 
+-En mis animales publicados va a tener un boton de editar para poder actualizar datos del animal . Va a rederigir a la pagina de publicar "pre-cargando" los datos
+
+
+-Objetivos 
+
+Al momento de crear un animal se le enviara un correo al email del usuario con confirmacion y los datos de la mascota
+
+Mis favoritos , animales que marco como favoritos me lo muestra en una pagina. Crear tabla favoritos
