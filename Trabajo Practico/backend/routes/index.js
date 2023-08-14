@@ -4,7 +4,7 @@ const MascotaController = require('../controllers/MascotaController.js')
 
 
 /* GET home page. */
-app.post('/',new MascotaController().create);
+app.post('/mascota',new MascotaController().create);
 
 
 
