@@ -4,6 +4,7 @@ import { FaCat, FaDog } from 'react-icons/fa';
 import { IoIosCheckmarkCircleOutline, IoIosCloseCircleOutline } from 'react-icons/io';
 import '../styles/components/pages/publicarAnimal.css';
 import provincias from '../utils/provincias.json';
+import axios from 'axios';
 
 const AnimalUploadPage = () => {
   const [nombre, setNombre] = useState('');
@@ -14,66 +15,90 @@ const AnimalUploadPage = () => {
   const [imagen, setImagen] = useState(null);
   const [descripcion, setDescripcion] = useState('');
   const [tipo, setTipo] = useState('Gato');
-  const [provincia, setProvincia] = useState(provincias[0]); 
+  const [provincia, setProvincia] = useState(provincias[0]);
   const [loading, setLoading] = useState(false);
 
-
+  /* Handle Nombre*/
   const handleNombreChange = (event) => {
     setNombre(event.target.value);
   };
 
+  /* Handle Raza*/
   const handleRazaChange = (event) => {
     setRaza(event.target.value);
   };
+
+  /* Handle Edad*/
   const handleEdadChange = (event) => {
     setEdad(parseInt(event.target.value, 10));
   };
 
+  /* Handle Tipo*/
   const handleTipoChange = (selectedTipo) => {
     setTipo(selectedTipo);
   };
 
-  const handleSelectChange = (option) => {
+  /* Handle Provincia*/
+  const handleProvinciaChange = (option) => {
     setProvincia(option);
   };
 
+  /* Handle Vacunado*/
   const handleCastradoChange = () => {
     setCastrado(!castrado);
   };
 
+  /* Handle Vacunado*/
   const handleVacunadoChange = () => {
     setVacunado(!vacunado);
   };
 
+  /* Handle Descripcion*/
   const handleDescripcionChange = (event) => {
     setDescripcion(event.target.value);
   };
 
+  /* Handle Imagen*/
   const handleImagenChange = (event) => {
     setImagen(event.target.files[0]);
   };
 
+  /* Handle Imagen*/
   const handleUploadClick = () => {
     document.getElementById('imagen').click();
   };
 
+  /* Enviar Formulario */
   const handleSubmit = async (event) => {
+    const apiUrl = process.env.REACT_APP_API_URL + '/mascota';
+    console.log(apiUrl)
     event.preventDefault();
     setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setLoading(false); 
-    setImagen(null);  
-    setNombre('');
-    setRaza('');
-    setEdad(0);
-    setProvincia(provincia[0]);
-    setTipo('Gato');   
-    setVacunado(false);
-    setCastrado(false);
-    setDescripcion('');
-      
     
+    const formData = new FormData();
+    formData.append('imagen', new File([imagen], imagen.name));
+    formData.append('nombre', nombre);
+    formData.append('edad', edad);
+    formData.append('raza', raza);
+    formData.append('tipo', tipo === 'Gato' ? '0' : '1');
+    formData.append('castrado', castrado ? 1 : 0);
+    formData.append('vacunado', vacunado ? 1 : 0);
+    formData.append('descripcion', descripcion);
+    formData.append('provincia', provincia.label);
+    formData.append('id_usuario', 'asdas-12313');
+
+    try {
+      const response = await axios.post(apiUrl, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });      
+      setLoading(false);
+    } catch (error) {      
+      setLoading(false);
+    }
   };
+
 
   return (
     <div>
@@ -93,6 +118,7 @@ const AnimalUploadPage = () => {
           <input
             type="file"
             id="imagen"
+            required
             accept="image/*"
             onChange={handleImagenChange}
             style={{ display: 'none' }}
@@ -141,7 +167,7 @@ const AnimalUploadPage = () => {
           <label htmlFor="edad" className="form-label">
             Ubicacion
           </label>
-          <Select isSearchable={true} options={provincias} value={provincia}  onChange={handleSelectChange} className='custom-select' required  />
+          <Select isSearchable={true} options={provincias} value={provincia} onChange={handleProvinciaChange} className='custom-select' required />
         </div>
         <div className="mb-3">
           <label htmlFor="tipo" className="form-label">

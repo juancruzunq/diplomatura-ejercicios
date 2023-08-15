@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var fileUpload = require('express-fileupload')
+var cors = require('cors');
 
 require('dotenv').config();
 var indexRouter = require('./routes/index');
@@ -19,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', indexRouter);
+app.use('/', cors() ,indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

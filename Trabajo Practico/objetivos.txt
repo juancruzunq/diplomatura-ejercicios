@@ -1,8 +1,19 @@
 
 
+
+LOGIN/LOGOUT
+-Crear pagina login/logout 
+-Manejar session/cookies 
+-Agregar id_usuario al momento de insertar un animal
+
+
 DELETE
--Crear pagina mis publicados , donde van a estar los animales que yo publique . Va a tener un boton para eliminar 
-Crear tabla publicados
+-Crear tabla usuarios , UUID , NOMBRE , CORREO , CONTRASEÑA . 
+-Cambiar tabla mascotas , agregar columna id_usuario_publicado , que va a tener el uuid del usuario que lo publico
+-A nivel backend va a recibir el uuid del animal a eliminar
+-Crear pagina mis publicados , donde van a estar los animales que yo publique . Va a tener un boton para eliminar , el front va a buscar los animales de mi uuid o correo
+
+
 
 READ 
 -Publicados  , va a contener los animales publicados . Con boton de whatsapp para "contactarse" . Cambio de estilos si es necesario

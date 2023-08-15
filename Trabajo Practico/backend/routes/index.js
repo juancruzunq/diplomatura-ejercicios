@@ -3,7 +3,7 @@ var app = express.Router();
 const MascotaController = require('../controllers/MascotaController.js')
 
 
-/* GET home page. */
+/* Publicar Mascota */
 app.post('/mascota',new MascotaController().create);
 
 
