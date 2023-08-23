@@ -1,10 +1,9 @@
 import React from "react";
-
 import Imagen1 from '../images/adopciones/kiza.png'
 import Imagen2 from '../images/adopciones/leki.png'
 import Imagen3 from '../images/adopciones/milo-leyla.png'
 import '../styles/components/pages/adoptarAnimalPage.css';
-const AdoptarAnimal = (props) => {   
+const AdoptarPage = (props) => {   
     return (
             <div>
             <div className="title-container">
@@ -49,4 +48,4 @@ const AdoptarAnimal = (props) => {
     );
 }
 
-export default AdoptarAnimal;
+export default AdoptarPage;

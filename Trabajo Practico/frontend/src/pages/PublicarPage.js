@@ -5,6 +5,7 @@ import { IoIosCheckmarkCircleOutline, IoIosCloseCircleOutline } from 'react-icon
 import '../styles/components/pages/publicarAnimal.css';
 import provincias from '../utils/provincias.json';
 import axios from 'axios';
+import PopUp from "../components/layout/PopUp"
 
 const AnimalUploadPage = () => {
   const [nombre, setNombre] = useState('');
@@ -17,6 +18,9 @@ const AnimalUploadPage = () => {
   const [tipo, setTipo] = useState('Gato');
   const [provincia, setProvincia] = useState(provincias[0]);
   const [loading, setLoading] = useState(false);
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupStatus, setPopupStatus] = useState(null);
+  const [popupMessage, setPopupMessage] = useState('');
 
   /* Handle Nombre*/
   const handleNombreChange = (event) => {
@@ -68,13 +72,30 @@ const AnimalUploadPage = () => {
     document.getElementById('imagen').click();
   };
 
+  /* Handle PopUp Close*/
+  const handlePopupClose = () => {
+    setPopupVisible(false);
+  };
+  /* Handle PopUp component*/
+  const handlePopUp = (status, message) => {
+    setPopupStatus(status);
+    setPopupMessage(message);
+    setPopupVisible(true);
+  }
+
   /* Enviar Formulario */
   const handleSubmit = async (event) => {
     const apiUrl = process.env.REACT_APP_API_URL + '/mascota';
-    console.log(apiUrl)
     event.preventDefault();
+
+    if (!imagen) {
+      setPopupStatus(500);
+      setPopupMessage('Debe seleccionar una imagen');
+      setPopupVisible(true);
+      return;
+    }
+
     setLoading(true);
-    
     const formData = new FormData();
     formData.append('imagen', new File([imagen], imagen.name));
     formData.append('nombre', nombre);
@@ -92,16 +113,24 @@ const AnimalUploadPage = () => {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
-      });      
+      });
+
+      handlePopUp(response.status, response.data.message);
       setLoading(false);
-    } catch (error) {      
+
+    } catch (error) {
+      handlePopUp(error.response.status, error.response.data.message);      
       setLoading(false);
     }
   };
 
+  
 
   return (
     <div>
+      {popupVisible && (
+        <PopUp status={popupStatus} message={popupMessage} onClose={handlePopupClose} />
+      )}
       {loading && (
         <div className="loading-overlay">
           <div className="loading-spinner"></div>
@@ -118,7 +147,6 @@ const AnimalUploadPage = () => {
           <input
             type="file"
             id="imagen"
-            required
             accept="image/*"
             onChange={handleImagenChange}
             style={{ display: 'none' }}

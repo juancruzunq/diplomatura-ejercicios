@@ -9,8 +9,9 @@ const Nav = (props) => {
             <div className="nav-items">
                 <ul>
                     <li><NavLink to="/">Inicio</NavLink></li>
-                    <li><NavLink to="/adoptar">Adoptar Patita</NavLink></li>
-                    <li><NavLink to="/publicar">Publicar Patita</NavLink></li>
+                    <li><NavLink to="/publicar">Publicar Patita</NavLink></li>   
+                    <li><NavLink to="/adoptar">Adoptar Patita</NavLink></li>                                  
+                    <li><NavLink to="/publicadas">Mis Patitas Publicadas</NavLink></li>
                     <li><NavLink to="/favoritos">Patitas Favoritas</NavLink></li>
                 </ul>
             </div>

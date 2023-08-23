@@ -1,5 +1,3 @@
-const pool = require('../models/db.js');
-const uuid = require('uuid');
 const MascotaModel = require('../models/MascotaModel.js');
 const util = require('util');
 const cloudinary = require('cloudinary').v2;
@@ -7,7 +5,7 @@ const uploader = util.promisify(cloudinary.uploader.upload);
 
 class MascotaController {
 
-  // Method para crear una mascota . Si no existe la mascota por nombre y id_usuario , la crea , sino arroja error 
+  // Method POST :  Crea una mascota . Si no existe la mascota por nombre y id_usuario , la crea , sino arroja error 
   // API : http://localhost:3000/mascota
   async create(req, res) {
     try {    

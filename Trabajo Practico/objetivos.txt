@@ -1,11 +1,9 @@
 
-
-
 LOGIN/LOGOUT
--Crear pagina login/logout 
--Manejar session/cookies 
--Agregar id_usuario al momento de insertar un animal
 
+-Cuando se crea un usuario guardar en cookies , id_usuario , usuario , email
+-Agregar id_usuario al momento de insertar un animal (Se obtiene de cookie)
+-Crear  logout
 
 DELETE
 -Crear tabla usuarios , UUID , NOMBRE , CORREO , CONTRASEÑA . 
