@@ -10,18 +10,16 @@ class MascotaController {
   async create(req, res) {
     try {
 
-      var id_imagen = '';
-
-      if (req.files && Object.keys(req.files).length > 0) {
-        var imagen = req.files.imagen;
-        id_imagen = (await uploader(imagen.tempFilePath)).public_id
-      }
-
-      const mascotaModel = new MascotaModel();
-      var mascotas = await mascotaModel.searchMascotaByName(req, res);
       const id_usuario = req.cookies.user_id;
-
+      const mascotaModel = new MascotaModel();
+      var mascotas = await mascotaModel.searchMascotaByName(req, res, id_usuario);
       if (mascotas.length === 0) {
+        var id_imagen = '';
+
+        if (req.files && Object.keys(req.files).length > 0) {
+          var imagen = req.files.imagen;
+          id_imagen = (await uploader(imagen.tempFilePath)).public_id
+        }
         mascotaModel.create(req, res, id_imagen, id_usuario)
       }
       else {

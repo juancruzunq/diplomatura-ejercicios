@@ -25,8 +25,8 @@ class MascotaModel {
   }
 
   //Method para buscar una mascota publicada por nombre e id_usuario
-  async searchMascotaByName(req, res) {
-    const { nombre, id_usuario } = req.body;
+  async searchMascotaByName(req, res,id_usuario) {
+    const { nombre} = req.body;
     try {
       const query = 'SELECT * FROM mascotas WHERE 1=1 and nombre = ? and id_usuario = ?';
       const result = pool.query(query, [nombre, id_usuario]);

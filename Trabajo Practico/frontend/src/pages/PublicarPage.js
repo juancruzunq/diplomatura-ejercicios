@@ -106,7 +106,7 @@ const AnimalUploadPage = () => {
     formData.append('vacunado', vacunado ? 1 : 0);
     formData.append('descripcion', descripcion);
     formData.append('provincia', provincia.label);
-
+    
     try {
       const response = await axios.post(apiUrl, formData, {
         headers: {
