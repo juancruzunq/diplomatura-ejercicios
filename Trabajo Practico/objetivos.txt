@@ -1,7 +1,6 @@
 
 LOGIN/LOGOUT
 
--Cuando se crea un usuario guardar en cookies , id_usuario , usuario , email
 -Agregar id_usuario al momento de insertar un animal (Se obtiene de cookie)
 -Crear  logout
 

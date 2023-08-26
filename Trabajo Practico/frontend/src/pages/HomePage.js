@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/components/pages/homePage.css';
 import Imagen from '../images/pet.jpg'
-const HomePage = (props) => {
+const HomePage = () => {
     const nombres = ['Juan Cruz' , 'Flavia','Alejandra' , 'Invitado']
     const[nombre,setNombre] = useState(nombres[Math.floor(Math.random() * nombres.length)]);
+    
+      
     return (
         <main className="main">
             <div >

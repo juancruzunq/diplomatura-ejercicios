@@ -106,13 +106,13 @@ const AnimalUploadPage = () => {
     formData.append('vacunado', vacunado ? 1 : 0);
     formData.append('descripcion', descripcion);
     formData.append('provincia', provincia.label);
-    formData.append('id_usuario', 'asdas-12313');
 
     try {
       const response = await axios.post(apiUrl, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
+        withCredentials : true
       });
 
       handlePopUp(response.status, response.data.message);

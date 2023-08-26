@@ -1,16 +1,22 @@
-import React from "react";
+import React from 'react';
 import '../../styles/components/layout/header.css'
 import LogOut from "./LogOut";
-const Header = (props) => {
+
+
+const Header = () => {
+
+
     return (
+
         <header>
-            <div className="header-container">              
+            <div className="header-container">
                 <div className="header-tittle">
-                <h1>PatitasSinHogar </h1>
+                    <h1>PatitasSinHogar </h1>
                 </div>
-                <LogOut />
+                <LogOut/>
             </div>
         </header>
+
     );
 }
 

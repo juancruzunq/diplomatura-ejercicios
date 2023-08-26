@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import PopUp from "../components/layout/PopUp"
 import axios from 'axios';
+import { Navigate } from "react-router-dom";
 import "../styles/components/pages/loginPage.css";
+
 
 const LoginPage = () => {
     const [isRegistering, setIsRegistering] = useState(false);
@@ -12,6 +14,7 @@ const LoginPage = () => {
     const [popupStatus, setPopupStatus] = useState(null);
     const [popupMessage, setPopupMessage] = useState('');
     const [loading, setLoading] = useState(false);
+    const [isLogged, setLogged] = useState(false);
 
     /* Handle register mode */
     const toggleRegisterMode = () => {
@@ -42,13 +45,32 @@ const LoginPage = () => {
     };
 
     /* Handle login logic */
-    const handleLogin = () => {
+    const handleLogin = async () => {
         if (email === '' || password === '') {
             handlePopUp(505, "Completa todos los campos!");
 
         } else {
-
-            console.log('Login:', email, password);
+            const apiUrl = process.env.REACT_APP_API_URL + '/login';
+            setLoading(true);
+            const data = {
+                email: email,
+                password: password
+              };
+            
+            try {
+                const response = await axios.post(apiUrl, data, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                setLoading(false);
+                if (response.status === 200) {
+                    setLogged(true);
+                }
+            } catch (error) {
+                handlePopUp(error.response.status, error.response.data.message);
+                setLoading(false);
+            }
         }
     };
 
@@ -65,22 +87,23 @@ const LoginPage = () => {
             formData.append('email', email);
             formData.append('usuario', username);
             formData.append('password', password);
-
             try {
                 const response = await axios.post(apiUrl, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
-                });               
+                    withCredentials: true
+                });
                 setLoading(false);
-                handlePopUp(response.status, response.data.message);
+                if (response.status === 200) {
+                    setLogged(true);
+                }
             } catch (error) {
                 handlePopUp(error.response.status, error.response.data.message);
                 setLoading(false);
             }
         }
     }
-
 
     /* Handle PopUp Close*/
     const handlePopupClose = () => {
@@ -104,6 +127,9 @@ const LoginPage = () => {
                 <div className="loading-overlay">
                     <div className="loading-spinner"></div>
                 </div>
+            )}
+            {isLogged && (
+                <Navigate to="/" />
             )}
             <div className="login-container">
                 <h2>Iniciar Sesión</h2>
