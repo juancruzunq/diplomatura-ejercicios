@@ -30,12 +30,12 @@ function LogOut() {
         setLoading(true);
 
         try {
-            const response = await axios.post(apiUrl, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-                withCredentials: true,
-            });
+          const response = await axios.post(apiUrl, null, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+            withCredentials : true
+          });
             setLoading(false);
             if (response.status === 200) {
                 setLogOut(true);

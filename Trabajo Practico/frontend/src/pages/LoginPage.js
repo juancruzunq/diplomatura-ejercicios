@@ -52,15 +52,14 @@ const LoginPage = () => {
         } else {
             const apiUrl = process.env.REACT_APP_API_URL + '/login';
             setLoading(true);
-            const data = {
-                email: email,
-                password: password
-              };
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
             
             try {
-                const response = await axios.post(apiUrl, data, {
+                const response = await axios.post(apiUrl, formData, {
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'multipart/form-data',
                     },
                 });
                 setLoading(false);
