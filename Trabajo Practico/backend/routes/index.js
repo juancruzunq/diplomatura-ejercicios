@@ -2,29 +2,23 @@ var express = require('express');
 var app = express.Router();
 const MascotaController = require('../controllers/MascotaController.js')
 const UsuarioController = require('../controllers/UsuarioController.js')
+const SessionController = require('../controllers/SessionController.js')
 
 
 /* Routes Mascota */
-app.post('/mascota',new MascotaController().create);        //Publicar Mascota
+app.post('/publicar',new MascotaController().publicar);        //Publicar Mascota
 
 
 /* Routes Usuarios*/
-app.post('/registrar',new UsuarioController().create);      //Publicar Usuario
-app.post('/login',new UsuarioController().search);          //Logear Usuario
+app.post('/registrar',new UsuarioController().registrar);      //Publicar Usuario
+app.post('/login',new UsuarioController().login);              //Logear Usuario
+app.get('/buscar',new UsuarioController().buscar);             //Busca un usuario
 
 
-//Deslogear el usuario
-app.post('/logout', (req, res) => {
-    console.log(req.session);
-    console.log(req.cookies);
-    req.session.destroy(err => {
-        if (err) {
-            return res.status(500).json({ message: 'Error al cerrar sesión' });
-        }       
-        res.clearCookie('user_id'); 
-        return res.status(200).json({ message: 'Sesión cerrada exitosamente' });
-    });
-});
+/* Routes Session*/
+app.post('/logout',new SessionController().logout);         //Destruye la sesion
+app.get('/logInCheck',new SessionController().logInCheck);  //Checkea si existe una session abierta
+
 
 module.exports = app;
 

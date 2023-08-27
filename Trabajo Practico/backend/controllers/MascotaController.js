@@ -6,8 +6,8 @@ const uploader = util.promisify(cloudinary.uploader.upload);
 class MascotaController {
 
   // Method POST :  Crea una mascota . Si no existe la mascota por nombre y id_usuario , la crea , sino arroja error 
-  // API : http://localhost:3000/mascota
-  async create(req, res) {
+  // API : http://localhost:3000/publicar
+  async publicar(req, res) {
     try {
 
       const id_usuario = req.cookies.user_id;

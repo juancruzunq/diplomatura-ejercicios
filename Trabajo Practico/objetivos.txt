@@ -1,8 +1,7 @@
 
 LOGIN/LOGOUT
-
--Agregar id_usuario al momento de insertar un animal (Se obtiene de cookie)
--Crear  logout
+-Login primera entrada
+--Mensaje de bienvenida , search a la base de datos ,usando el user_id cookie
 
 DELETE
 -Crear tabla usuarios , UUID , NOMBRE , CORREO , CONTRASEÑA . 

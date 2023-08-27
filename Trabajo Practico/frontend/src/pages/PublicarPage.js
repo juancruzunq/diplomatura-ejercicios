@@ -85,7 +85,7 @@ const AnimalUploadPage = () => {
 
   /* Enviar Formulario */
   const handleSubmit = async (event) => {
-    const apiUrl = process.env.REACT_APP_API_URL + '/mascota';
+    const apiUrl = process.env.REACT_APP_API_URL + '/publicar';
     event.preventDefault();
 
     if (!imagen) {

@@ -30,10 +30,7 @@ function LogOut() {
         setLoading(true);
 
         try {
-          const response = await axios.post(apiUrl, null, {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-            },
+          const response = await axios.post(apiUrl, null, {           
             withCredentials : true
           });
             setLoading(false);

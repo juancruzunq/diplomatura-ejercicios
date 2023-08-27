@@ -42,6 +42,16 @@ class UsuarioModel {
     }
   }
 
+  //Method para buscar un usuario por id
+  async searchUsuarioById(id_usuario) {
+    try {
+      const query = 'SELECT * FROM usuarios WHERE 1=1 and id_usuario = ?';
+      const result = pool.query(query, [id_usuario]);
+      return result;
+    } catch (error) {
+     
+    }
+  }
 
 
 }

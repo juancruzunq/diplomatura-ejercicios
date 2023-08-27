@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Nav from './components/layout/Nav';
@@ -9,6 +9,7 @@ import AdoptarPage from './pages/AdoptarPage';
 import FavoritosPage from './pages/FavoritosPage';
 import PublicadosPage from './pages/PublicadosPage';
 import LoginPage from './pages/LoginPage';
+import axios from 'axios';
 
 function App() {
   return (
@@ -27,8 +28,6 @@ function App() {
   );
 }
 
-
-
 // Componente Login
 function Login() {
   return <LoginPage />;
@@ -38,8 +37,24 @@ function Login() {
 function Layout({ children }) {
   const location = useLocation();
 
-  if (location.pathname === '/login') {
-    return children;
+  // Lógica de autenticación similar a la del componente HomePage
+  const [authenticated, setAuthenticated] = useState(true);
+
+  useEffect(() => {
+    async function logInCheck() {
+      const apiUrl = process.env.REACT_APP_API_URL + '/logInCheck';
+      try {
+        const response = await axios.get(apiUrl, { withCredentials: true });
+        setAuthenticated(response.data);
+      } catch (error) {
+        setAuthenticated(false);
+      }
+    }
+    logInCheck();
+  }, []);
+
+  if (!authenticated && location.pathname !== '/login') {
+    return <Navigate to="/login" />;
   }
 
   return (
@@ -51,5 +66,6 @@ function Layout({ children }) {
     </React.Fragment>
   );
 }
+
 document.body.style.margin = 0;
 export default App;

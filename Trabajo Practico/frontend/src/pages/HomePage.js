@@ -1,12 +1,27 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState,useEffect} from 'react';
 import '../styles/components/pages/homePage.css';
-import Imagen from '../images/pet.jpg'
+import Imagen from '../images/pet.jpg';
+import axios from 'axios';
+
 const HomePage = () => {
-    const nombres = ['Juan Cruz' , 'Flavia','Alejandra' , 'Invitado']
-    const[nombre,setNombre] = useState(nombres[Math.floor(Math.random() * nombres.length)]);
+    const [nombre, setNombre] = useState('');
     
-      
+    useEffect(() => {
+        async function getNombre() {
+         const apiUrl = process.env.REACT_APP_API_URL + '/buscar';
+          try {
+            const response = await axios.get(apiUrl, { withCredentials: true });
+            if(response.status === 200){
+                setNombre(response.data.usuario);
+            }
+          } catch (error) {
+            setNombre('Invitado');
+          }
+        }
+        getNombre();
+      }, []);
+
     return (
         <main className="main">
             <div >
