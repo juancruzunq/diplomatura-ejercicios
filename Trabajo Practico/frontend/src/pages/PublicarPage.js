@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import Select from 'react-select'
 import { FaCat, FaDog } from 'react-icons/fa';
 import { IoIosCheckmarkCircleOutline, IoIosCloseCircleOutline } from 'react-icons/io';
@@ -21,6 +21,7 @@ const AnimalUploadPage = () => {
   const [popupVisible, setPopupVisible] = useState(false);
   const [popupStatus, setPopupStatus] = useState(null);
   const [popupMessage, setPopupMessage] = useState('');
+  
 
   /* Handle Nombre*/
   const handleNombreChange = (event) => {
@@ -192,7 +193,7 @@ const AnimalUploadPage = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="edad" className="form-label">
+          <label htmlFor="ubicacion" className="form-label">
             Ubicacion
           </label>
           <Select isSearchable={true} options={provincias} value={provincia} onChange={handleProvinciaChange} className='custom-select' required />

@@ -7,12 +7,13 @@ const SessionController = require('../controllers/SessionController.js')
 
 /* Routes Mascota */
 app.post('/publicar',new MascotaController().publicar);        //Publicar Mascota
+app.get('/mascotas',new MascotaController().buscar);        //Buscar Mascotas
 
 
 /* Routes Usuarios*/
 app.post('/registrar',new UsuarioController().registrar);      //Publicar Usuario
 app.post('/login',new UsuarioController().login);              //Logear Usuario
-app.get('/buscar',new UsuarioController().buscar);             //Busca un usuario
+app.get('/usuario',new UsuarioController().buscar);             //Busca un usuario
 
 
 /* Routes Session*/

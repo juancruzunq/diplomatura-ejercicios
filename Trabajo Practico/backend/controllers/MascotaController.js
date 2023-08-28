@@ -31,6 +31,18 @@ class MascotaController {
 
     }
   }
+  // Method POST : Busca mascotas 
+  // API : http://localhost:3000/buscar
+  async buscar(req, res) {
+    try {
+      const mascotaModel = new MascotaModel();
+      var mascotas = await mascotaModel.searchMascotas();
+      return res.status(200).json(mascotas);
+    }
+    catch (error) {
+      return res.status(500).json({ message: 'Hubo un problema con el servidor , intente mas tarde' });
+    }
+  }
 }
 
 module.exports = MascotaController;

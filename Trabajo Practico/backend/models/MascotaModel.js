@@ -35,6 +35,18 @@ class MascotaModel {
       return res.status(500).json({ message: 'Hubo un problema con el servidor , intente mas tarde' });
     }
   }
+
+  //Method para buscar mascotas
+  async searchMascotas() {
+    try {
+      const query = 'SELECT * FROM mascotas WHERE 1=1';
+      const result = pool.query(query);
+      return result;
+    } catch (error) {
+      return res.status(500).json({ message: 'Hubo un problema con el servidor , intente mas tarde' });
+    }
+  }
+
 }
 
 module.exports = MascotaModel;

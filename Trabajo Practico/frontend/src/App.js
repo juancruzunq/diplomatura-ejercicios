@@ -37,9 +37,9 @@ function Login() {
 function Layout({ children }) {
   const location = useLocation();
 
-  // Lógica de autenticación similar a la del componente HomePage
   const [authenticated, setAuthenticated] = useState(true);
 
+  //Check si el usuario esta logeado y hacer redireccionamiento
   useEffect(() => {
     async function logInCheck() {
       const apiUrl = process.env.REACT_APP_API_URL + '/logInCheck';

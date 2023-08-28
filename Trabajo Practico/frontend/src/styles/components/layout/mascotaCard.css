@@ -1,0 +1,83 @@
+.card {
+  display: flex;
+  width: 570px;
+  border: 1px solid indigo;
+  border-radius: 10px;
+  background-color: rgba(216, 208, 198, 0.253);
+  overflow: hidden;
+  position: relative;
+}
+
+.card img {
+  width: 170px; /* Tamaño máximo de la imagen */
+  max-height: 175px; /* Altura máxima de la imagen */
+  object-fit: cover; /* Ajusta la imagen para que ocupe todo el espacio disponible sin deformarla */
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.adopciones-card-info {
+  display: flex;
+  flex-direction: column;
+  color: #384047;
+  padding: 20px;
+  flex: 1;
+}
+
+.nombre-mascota {
+  margin: 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #000;
+}
+
+.descripcion {
+  flex-grow: 1;
+}
+
+.descripcion.scrollable {
+  overflow: auto; /* Agrega scroll si el contenido desborda */
+  white-space: normal; /* Permite saltos de línea en el texto */
+  max-height: 100px; /* Altura máxima de la descripción antes de mostrar el scroll */
+}
+
+.location-icon {
+  margin-right: 5px;
+}
+
+
+.icons-container {
+  color: #ff0000;
+  margin-left: -180px;
+}
+
+.location-container {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: 5px;
+  padding-top: 10px;
+}
+
+.icon {
+  font-size: 35px;
+  margin-left: 27px;
+}
+
+.icon.whatsapp {
+  color: #00c853;
+}
+
+.img-container {
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+  flex-shrink: 0;
+}
+
+.card-scrollable {
+  overflow-y: auto;
+}
