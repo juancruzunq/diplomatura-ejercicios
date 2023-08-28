@@ -28,14 +28,19 @@ const AdoptarPage = (props) => {
             <div className="title-container">
                 <h2>Buscamos una familia</h2>
             </div>
-            <div className="adopciones-cards">
-                {mascotas.map((mascota) => (
-                    <MascotaCard key={mascota.id_mascota} mascota={mascota} />
-
-                ))}
-            </div>
+            {mascotas.length === 0 ? (
+                <p className="empty-message">
+                    Por el momento, no hay animales en adopción. Intente más tarde.
+                </p>
+            ) : (
+                <div className="adopciones-cards">
+                    {mascotas.map((mascota) => (
+                        <MascotaCard key={mascota.id_mascota} mascota={mascota} />
+                    ))}
+                </div>
+            )}
         </div>
     );
-}
+};
 
 export default AdoptarPage;

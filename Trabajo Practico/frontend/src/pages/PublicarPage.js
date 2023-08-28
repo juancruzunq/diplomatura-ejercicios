@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import Select from 'react-select'
-import { FaCat, FaDog } from 'react-icons/fa';
+import { FaVenus, FaMars } from 'react-icons/fa';
 import { IoIosCheckmarkCircleOutline, IoIosCloseCircleOutline } from 'react-icons/io';
 import '../styles/components/pages/publicarAnimal.css';
 import provincias from '../utils/provincias.json';
@@ -15,7 +15,7 @@ const AnimalUploadPage = () => {
   const [vacunado, setVacunado] = useState(false);
   const [imagen, setImagen] = useState(null);
   const [descripcion, setDescripcion] = useState('');
-  const [tipo, setTipo] = useState('Gato');
+  const [genero, setGenero] = useState('Hembra');
   const [provincia, setProvincia] = useState(provincias[0]);
   const [loading, setLoading] = useState(false);
   const [popupVisible, setPopupVisible] = useState(false);
@@ -39,8 +39,8 @@ const AnimalUploadPage = () => {
   };
 
   /* Handle Tipo*/
-  const handleTipoChange = (selectedTipo) => {
-    setTipo(selectedTipo);
+  const handleGeneroChange = (selectedTipo) => {
+    setGenero(selectedTipo);
   };
 
   /* Handle Provincia*/
@@ -102,7 +102,7 @@ const AnimalUploadPage = () => {
     formData.append('nombre', nombre);
     formData.append('edad', edad);
     formData.append('raza', raza);
-    formData.append('tipo', tipo === 'Gato' ? '0' : '1');
+    formData.append('tipo', genero === 'Hembra' ? '0' : '1');
     formData.append('castrado', castrado ? 1 : 0);
     formData.append('vacunado', vacunado ? 1 : 0);
     formData.append('descripcion', descripcion);
@@ -203,15 +203,21 @@ const AnimalUploadPage = () => {
             Tipo
           </label>
           <div className="tipo-icons">
-            <div className={`tipo-icon ${tipo === 'Gato' ? 'selected' : ''}`} onClick={() => handleTipoChange('Gato')}>
-              <FaCat />
-              <span>Gato</span>
-            </div>
-            <div className={`tipo-icon ${tipo === 'Perro' ? 'selected' : ''}`} onClick={() => handleTipoChange('Perro')}>
-              <FaDog />
-              <span>Perro</span>
-            </div>
-          </div>
+  <div
+    className={`tipo-icon ${genero === 'Hembra' ? 'selected female' : ''}`}
+    onClick={() => handleGeneroChange('Hembra')}
+  >
+    <FaVenus />
+    <span>Hembra</span>
+  </div>
+  <div
+    className={`tipo-icon ${genero === 'Macho' ? 'selected male' : ''}`}
+    onClick={() => handleGeneroChange('Macho')}
+  >
+    <FaMars />
+    <span>Macho</span>
+  </div>
+</div>
         </div>
         <div className="mb-3 form-check">
           <div

@@ -95,7 +95,13 @@
 .selected {
   color: #00cc00;
 }
+.female {
+  color: #ff69b4;
+}
 
+.male {
+  color: #1e90ff;
+}
 .castrado-icon,
 .vacunado-icon {
   font-size: 40px;
