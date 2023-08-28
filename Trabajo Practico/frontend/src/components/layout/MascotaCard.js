@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/components/layout/mascotaCard.css';
 import Imagen1 from '../../images/adopciones/kiza.png';
+import { GiHealthNormal } from "react-icons/gi";
 
 import { FaMapMarkerAlt, FaInfoCircle, FaWhatsapp } from 'react-icons/fa';
 
@@ -28,14 +29,15 @@ const MascotaCard = ({ mascota }) => {
               <p className="additional-info-text">{mascota.tipo === 0 ? 'Hembra, ' : 'Macho, '}{mascota.edad === 0 ? 'Cachorro' : 'Adulto '}</p>       
           </div>
           <div className="additional-info">
-              <FaInfoCircle className="additional-info-icon" />
+              <GiHealthNormal className="additional-info-icon" />
               <p className="additional-info-text">{atencionMedica()}</p>       
-          </div>            
-          <p className={descripcionClassName}>{mascota.descripcion}</p>
+          </div> 
           <div className="location-container">
             <FaMapMarkerAlt className="location-icon" />
             <p>{mascota.provincia}</p>            
-          </div>
+          </div>           
+          <p className={descripcionClassName}>{mascota.descripcion}</p>
+          
         </div>
       </div>
       <div className="icons-container">

@@ -6,7 +6,6 @@ import Nav from './components/layout/Nav';
 import PublicarPage from './pages/PublicarPage';
 import HomePage from './pages/HomePage';
 import AdoptarPage from './pages/AdoptarPage';
-import FavoritosPage from './pages/FavoritosPage';
 import PublicadosPage from './pages/PublicadosPage';
 import LoginPage from './pages/LoginPage';
 import axios from 'axios';
@@ -19,7 +18,6 @@ function App() {
         <Route path="/" element={<Layout><HomePage /></Layout>} />
         <Route path="adoptar" element={<Layout><AdoptarPage /></Layout>} />
         <Route path="publicar" element={<Layout><PublicarPage /></Layout>} />
-        <Route path="favoritos" element={<Layout><FavoritosPage /></Layout>} />
         <Route path="publicadas" element={<Layout><PublicadosPage /></Layout>} />
         {/* Ruta sin encabezado, navegación ni pie de página */}
         <Route path="login" element={<Login />} />
