@@ -9,7 +9,7 @@ import PopUp from "../components/layout/PopUp"
 
 const AnimalUploadPage = () => {
   const [nombre, setNombre] = useState('');
-  const [raza, setRaza] = useState('');
+  const [contacto, setContacto] = useState();
   const [edad, setEdad] = useState(0);
   const [castrado, setCastrado] = useState(false);
   const [vacunado, setVacunado] = useState(false);
@@ -28,9 +28,9 @@ const AnimalUploadPage = () => {
     setNombre(event.target.value);
   };
 
-  /* Handle Raza*/
-  const handleRazaChange = (event) => {
-    setRaza(event.target.value);
+  /* Handle contacto*/
+  const handleContactoChange = (event) => {
+    setContacto(event.target.value);
   };
 
   /* Handle Edad*/
@@ -101,7 +101,7 @@ const AnimalUploadPage = () => {
     formData.append('imagen', new File([imagen], imagen.name));
     formData.append('nombre', nombre);
     formData.append('edad', edad);
-    formData.append('raza', raza);
+    formData.append('contacto', contacto);
     formData.append('tipo', genero === 'Hembra' ? '0' : '1');
     formData.append('castrado', castrado ? 1 : 0);
     formData.append('vacunado', vacunado ? 1 : 0);
@@ -117,6 +117,7 @@ const AnimalUploadPage = () => {
       });
 
       handlePopUp(response.status, response.data.message);
+      resetPatita();
       setLoading(false);
 
     } catch (error) {
@@ -125,7 +126,15 @@ const AnimalUploadPage = () => {
     }
   };
 
-  
+  const resetPatita = () => {
+    setNombre('');
+    setEdad(0);
+    setDescripcion('');
+    setGenero('Hembra');
+    setVacunado(null);
+    setCastrado(null);
+    setImagen(null);
+  }
 
   return (
     <div>
@@ -167,15 +176,15 @@ const AnimalUploadPage = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="raza" className="form-label">
-            Raza
+          <label htmlFor="contacto" className="form-label">
+            Contacto
           </label>
           <input
-            type="text"
+            type="number"
             className="form-control"
-            id="raza"
-            value={raza}
-            onChange={handleRazaChange}
+            id="contacto"
+            value={contacto}
+            onChange={handleContactoChange}
             required
           />
         </div>

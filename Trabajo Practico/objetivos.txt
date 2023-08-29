@@ -1,10 +1,7 @@
 
-READ 
--Adoptar patita  , va a contener los animales publicados . Con boton de whatsapp para "contactarse" . Cambio de estilos si es necesario
-
 DELETE
--A nivel backend va a recibir el uuid del animal a eliminar
--Crear pagina mis publicados , donde van a estar los animales que yo publique . Va a tener un boton para eliminar , el front va a buscar los animales de mi uuid 
+-Cookie id_usuario
+-Crear pagina mis publicados , donde van a estar los animales que yo publique . Va a tener un boton para eliminar , el front va a buscar los animales publicados con mi uuid
 
 
 
@@ -16,4 +13,3 @@ UPDATE
 
 Al momento de crear un animal se le enviara un correo al email del usuario con confirmacion y los datos de la mascota
 
-Mis favoritos , animales que marco como favoritos me lo muestra en una pagina. Crear tabla favoritos

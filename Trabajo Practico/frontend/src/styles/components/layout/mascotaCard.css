@@ -1,6 +1,6 @@
 .card {
   display: flex;
-  flex-direction: column; /* Cambiado para que sea una columna */
+  flex-direction: column; 
   width: 570px;
   height: 350px;
   border: 1px solid indigo;
@@ -58,6 +58,7 @@
 
 .icon.whatsapp {
   color: #00c853;
+  cursor: pointer;
 }
 
 .img-container {

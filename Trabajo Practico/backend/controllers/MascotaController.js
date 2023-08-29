@@ -37,8 +37,28 @@ class MascotaController {
     try {
       const mascotaModel = new MascotaModel();
       var mascotas = await mascotaModel.searchMascotas();
+      mascotas = mascotas.map(mascota => {
+        if (mascota.id_imagen) {
+          const imagen = cloudinary.image(mascota.id_imagen, {
+            width: 500,
+            height: 500,
+            crop: 'fill'
+          });
+          return {
+            ...mascota,
+            imagen
+          }
+        } else {
+          return {
+            ...mascota,
+            imagen: ''
+          }
+        }
+      }
+      );
       return res.status(200).json(mascotas);
     }
+
     catch (error) {
       return res.status(500).json({ message: 'Hubo un problema con el servidor , intente mas tarde' });
     }
