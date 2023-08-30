@@ -28,9 +28,10 @@ const HomePage = () => {
             <div >
                 <section >
                     <h2 className="titulos-home">Bienvenido/a {nombre} !</h2>
-                    <p className="parrafo-home">En esta pagina hacemos los sueños de muchas mascotas realidad , encontrar una familia ♥<br />
-                        PatitasSinHogar es un proyecto destinado a la adopcion de mascotas.<br /> Desde nuestro sitio web vas a poder buscar , elegir ,
-                        y completar la adopcion en unos simples pasos <br />
+                    <p className="parrafo-home">
+                        Te damos la bienvenida  PatitasSinHogar ! Un espacio dedicado a  la adopción de mascotas. Acá se cruzan historias de amistad y las ganas de encontrar un hogar para aquellos que buscan compañía.<br />
+                        Nuestro compromiso es hacer más fácil el encuentro entre los que están dispuestos a brindar cariño y los que lo necesitan. Cada mascota que busca un hogar tiene su propia historia, una personalidad única y una oportunidad para ser parte de un nuevo capítulo en la vida de alguien.<br /> 
+                        Esta plataforma no solo busca sumar un miembro a tu familia, sino también forjar un vínculo profundo. Acá encontrarás una selección de compañeros peludos en busca de cariño y seguridad. <br />
                     </p>
                     <h2 className="titulos-home">Adoptar nunca fue tan facil</h2>
                 </section>

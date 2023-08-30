@@ -125,7 +125,8 @@ const AnimalUploadPage = () => {
       setLoading(false);
     }
   };
-
+  
+   /* Resetea la informacion del animal*/
   const resetPatita = () => {
     setNombre('');
     setEdad(0);

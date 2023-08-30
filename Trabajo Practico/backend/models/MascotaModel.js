@@ -4,7 +4,7 @@ const uuid = require('uuid');
 
 class MascotaModel {
 
-  //Method para crear una mascota  
+  // Query para crear una mascota  
   create(req, res, id_imagen, id_usuario) {
     try {
       const { nombre, edad, contacto, tipo, castrado, vacunado, descripcion, provincia } = req.body;
@@ -20,11 +20,10 @@ class MascotaModel {
 
     }
     catch (error) {
-      return res.status(500).json({ message: 'Hubo un problema al intentar registrar la mascota , intente mas tarde' });
     }
   }
 
-  //Method para buscar una mascota publicada por nombre e id_usuario
+  //Query para buscar una mascota publicada por nombre e id_usuario
   async searchMascotaByName(req, res,id_usuario) {
     const { nombre} = req.body;
     try {
@@ -32,18 +31,46 @@ class MascotaModel {
       const result = pool.query(query, [nombre, id_usuario]);
       return result;
     } catch (error) {
-      return res.status(500).json({ message: 'Hubo un problema con el servidor , intente mas tarde' });
     }
   }
 
-  //Method para buscar mascotas
+  // Query para buscar mascotas
   async searchMascotas() {
     try {
       const query = 'SELECT * FROM mascotas WHERE 1=1';
       const result = pool.query(query);
       return result;
     } catch (error) {
-      return res.status(500).json({ message: 'Hubo un problema con el servidor , intente mas tarde' });
+    }
+  }
+
+  // Query para buscar mascotas por id_usuario
+  async searchPublicados(id_usuario) {
+    try {
+      const query = 'SELECT * FROM mascotas WHERE 1=1 AND id_usuario = ?';
+      const result = pool.query(query,[id_usuario]);
+      return result;
+    } catch (error) {
+    }
+  }
+
+  //Query para buscar una mascota por id_mascota
+  async searchMascotaById(id_mascota) {
+    try {
+      const query = 'SELECT * FROM mascotas WHERE 1=1 and id_mascota = ?';
+      const result = pool.query(query, [id_mascota]);
+      return result;
+    } catch (error) {
+    }
+  }
+
+  // Query para eliminar mascotas por id_usuario
+  async eliminar(id_mascota) {
+    try {
+      const query = 'DELETE FROM mascotas WHERE id_mascota = ?';
+      const result = pool.query(query,[id_mascota]);
+      return result;
+    } catch (error) {
     }
   }
 

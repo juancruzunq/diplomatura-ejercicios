@@ -5,7 +5,7 @@ const uuid = require('uuid');
 class UsuarioModel {
 
 
-  //Method para crear un usuario
+  // Query para crear un usuario
   async create(req, res) {
     try {
       const { id_usuario = uuid.v4(), usuario, password, email } = req.body;

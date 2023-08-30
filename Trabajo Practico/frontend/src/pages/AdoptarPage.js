@@ -4,9 +4,10 @@ import axios from 'axios';
 import MascotaCard from '../components/layout/MascotaCard';
 
 
-const AdoptarPage = (props) => {
+const AdoptarPage = () => {
 
     const [mascotas, setMascotas] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     //Busca las mascotas para adoptar
     const fetchMascotas = async () => {
@@ -14,6 +15,9 @@ const AdoptarPage = (props) => {
         try {
             const response = await axios.get(apiUrl, { withCredentials: true });
             setMascotas(response.data);
+            setTimeout(() => {
+                setLoading(false);
+            }, 1000);
         } catch (error) {
             setMascotas([]);
         }
@@ -25,6 +29,11 @@ const AdoptarPage = (props) => {
 
     return (
         <div>
+            {loading && (
+                <div className="loading-overlay">
+                    <div className="loading-spinner"></div>
+                </div>
+            )}
             <div className="title-container">
                 <h2>Buscamos una familia</h2>
             </div>

@@ -1,7 +1,7 @@
 
 class SessionController {
 
-    // Method POST :Deslogea el usuario actual 
+    // Method POST : Deslogea el usuario actual 
     // API : http://localhost:3000/logout
     async logout(req, res) {
         try {

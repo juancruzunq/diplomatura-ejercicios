@@ -6,8 +6,10 @@ const SessionController = require('../controllers/SessionController.js')
 
 
 /* Routes Mascota */
-app.post('/publicar',new MascotaController().publicar);        //Publicar Mascota
-app.get('/mascotas',new MascotaController().buscar);        //Buscar Mascotas
+app.post('/publicar',new MascotaController().publicar);                 //Publicar Mascota
+app.get('/mascotas',new MascotaController().buscar);                    //Buscar Mascotas
+app.get('/publicados',new MascotaController().buscarPublicados);        //Buscar mascotas publicadas por el usuario logeado
+app.delete('/eliminar/:id_mascota',new MascotaController().eliminar);    //Elimina la mascota 
 
 
 /* Routes Usuarios*/
