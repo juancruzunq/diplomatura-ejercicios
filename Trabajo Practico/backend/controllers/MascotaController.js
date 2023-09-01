@@ -1,8 +1,11 @@
 const MascotaModel = require('../models/MascotaModel.js');
+const UsuarioModel = require('../models/UsuarioModel.js');
 const util = require('util');
 const cloudinary = require('cloudinary').v2;
 const uploader = util.promisify(cloudinary.uploader.upload);
 const destroy = util.promisify(cloudinary.uploader.destroy);
+const utils = require('../utils/utils.js');
+
 class MascotaController {
 
   // Method POST :  Crea una mascota . Si no existe la mascota por nombre y id_usuario , la crea , sino arroja error 
@@ -22,7 +25,13 @@ class MascotaController {
           id_imagen = (await uploader(imagen.tempFilePath)).public_id
         }
 
-        mascotaModel.create(req, res, id_imagen, id_usuario)
+          mascotaModel.create(req, res, id_imagen, id_usuario)
+          const usuarioModel = new UsuarioModel();
+          var usuario = await usuarioModel.searchUsuarioById(id_usuario);
+          utils.sendEmail(usuario[0].email,usuario[0].usuario,req.body);
+          return res.status(200).json({ message: 'Mascota publicada correctamente' });
+        
+
       }
       else {
         return res.status(500).json({ message: 'Ya existe publicada la mascota' });

@@ -9,7 +9,7 @@ import PopUp from "../components/layout/PopUp"
 
 const AnimalUploadPage = () => {
   const [nombre, setNombre] = useState('');
-  const [contacto, setContacto] = useState();
+  const [contacto, setContacto] = useState('');
   const [edad, setEdad] = useState(0);
   const [castrado, setCastrado] = useState(false);
   const [vacunado, setVacunado] = useState(false);

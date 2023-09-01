@@ -15,7 +15,7 @@ class MascotaModel {
         if (error) {
           return res.status(500).json({ message: 'Hubo un problema al intentar registrar la mascota, inténtelo de nuevo más tarde' });
         }
-        return res.status(200).json({ message: 'Mascota publicada correctamente' });
+       
       });
 
     }

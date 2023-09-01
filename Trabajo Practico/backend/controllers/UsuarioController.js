@@ -13,6 +13,9 @@ class UsuarioController {
       if (usuarios.length === 0) {
         const response = await usuarioModel.create(req, res);
         utils.setUserCookies(req,res, response.id_usuario)      //Asigna cookies : id , usuario , email
+        
+        utils.sendEmail(req.body.email,req.body.usuario);
+        
         return res.status(200).json({ message: 'Usuario publicado correctamente' });
       }
       else {
@@ -41,7 +44,7 @@ class UsuarioController {
     }
     catch (error) {
       return res.status(500).json({ message: 'Hubo un problema con el servidor , intente mas tarde' });
-
+      
     }
   }
 
@@ -62,9 +65,8 @@ class UsuarioController {
     catch (error) {
       return res.status(500).json({ message: 'Hubo un problema con el servidor , intente mas tarde' });
     }
-  }
+  } 
 
-  
 
 
 }
