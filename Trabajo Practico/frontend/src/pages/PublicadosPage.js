@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import '../styles/components/pages/adoptarAnimalPage.css';
 import axios from 'axios';
 import MascotaCard from '../components/layout/MascotaCard';
+import ActualizarMascota from './ActualizarMascota'
 
 
 const PublicadosPage = () => {
 
     const [mascotas, setMascotas] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [edit, setEdit] = useState(false);
+    const [mascota, setMascota] = useState();
 
     /* Busca las mascotas que publique */
     const fetchMascotas = async () => {
@@ -29,7 +32,7 @@ const PublicadosPage = () => {
         try {
             const formData = new FormData();
             formData.append('id_mascota', id_mascota);
-            const response = await axios.delete(apiUrl, formData, {
+            await axios.delete(apiUrl, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -40,6 +43,16 @@ const PublicadosPage = () => {
             setMascotas([]);
         }
     };
+    /* Handle Edit mascota */
+    const handleEditClick = (mascota) => {
+        setMascota(mascota);
+        setEdit(true);
+    };
+
+    /* Handle Edit mascota */
+    const handlePublicadosClick = () => {
+    setEdit(false); 
+  };
 
     useEffect(() => {
         fetchMascotas();
@@ -52,26 +65,35 @@ const PublicadosPage = () => {
                     <div className="loading-spinner"></div>
                 </div>
             )}
-            <div className="title-container">
-                <h2>Mis publicados</h2>
-            </div>
-            {mascotas.length === 0 ? (
-                <p className="empty-message">
-                    Por el momento, no hay animales en adopción. Intente más tarde.
-                </p>
+            {edit ? (
+                <ActualizarMascota mascota={mascota} onBack={handlePublicadosClick} />
             ) : (
-                <div className="adopciones-cards">
-                    {mascotas.map((mascota) => (
-                        <MascotaCard
-                            key={mascota.id_mascota}
-                            mascota={mascota}
-                            flag={true}
-                            onDelete={() => deleteMascota(mascota.id_mascota)}
-                        />))}
-                </div>
+                <>
+                    <div className="title-container">
+                        <h2>Mis Patitas Publicadas</h2>
+                    </div>
+                    {mascotas.length === 0 ? (
+                        <p className="empty-message">
+                            Por el momento, no hay mascotas en adopción. Intente más tarde.
+                        </p>
+                    ) : (
+                        <div className="adopciones-cards">
+                            {mascotas.map((mascota) => (
+                                <MascotaCard
+                                    key={mascota.id_mascota}
+                                    mascota={mascota}
+                                    flag={true}
+                                    onDelete={() => deleteMascota(mascota.id_mascota)}
+                                    onUpdate={() => handleEditClick(mascota)}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </>
             )}
         </div>
     );
+    
 };
 
 export default PublicadosPage;

@@ -9,6 +9,7 @@ const AdoptarPage = () => {
     const [mascotas, setMascotas] = useState([]);
     const [loading, setLoading] = useState(true);
 
+
     //Busca las mascotas para adoptar
     const fetchMascotas = async () => {
         const apiUrl = process.env.REACT_APP_API_URL + '/mascotas';
@@ -26,25 +27,27 @@ const AdoptarPage = () => {
     useEffect(() => {
         fetchMascotas();
     }, []);
-
+    
     return (
-        <div>
+        <div>            
             {loading && (
                 <div className="loading-overlay">
                     <div className="loading-spinner"></div>
                 </div>
             )}
             <div className="title-container">
-                <h2>Buscamos una familia</h2>
+                <h2>Adoptar Patita</h2>
             </div>
             {mascotas.length === 0 ? (
                 <p className="empty-message">
-                    Por el momento, no hay animales en adopción. Intente más tarde.
+                    Por el momento, no hay mascotas en adopción. Intente más tarde.
                 </p>
             ) : (
                 <div className="adopciones-cards">
                     {mascotas.map((mascota) => (
-                        <MascotaCard key={mascota.id_mascota} mascota={mascota} />
+                        <MascotaCard
+                            key={mascota.id_mascota}
+                            mascota={mascota} />
                     ))}
                 </div>
             )}

@@ -1,12 +1,5 @@
 
-DELETE
--Cookie id_usuario
--Crear pagina mis publicados , donde van a estar los animales que yo publique . Va a tener un boton para eliminar , el front va a buscar los animales publicados con mi uuid
 
-
-
-UPDATE 
--En mis animales publicados va a tener un boton de editar para poder actualizar datos del animal . Va a rederigir a la pagina de publicar "pre-cargando" los datos
 
 
 -Objetivos 

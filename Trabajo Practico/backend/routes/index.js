@@ -10,6 +10,7 @@ app.post('/publicar',new MascotaController().publicar);                 //Public
 app.get('/mascotas',new MascotaController().buscar);                    //Buscar Mascotas
 app.get('/publicados',new MascotaController().buscarPublicados);        //Buscar mascotas publicadas por el usuario logeado
 app.delete('/eliminar/:id_mascota',new MascotaController().eliminar);    //Elimina la mascota 
+app.put('/actualizar/:id_mascota',new MascotaController().actualizar);    //Actualiza la amascota
 
 
 /* Routes Usuarios*/

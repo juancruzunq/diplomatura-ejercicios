@@ -14,12 +14,14 @@ class MascotaController {
       const mascotaModel = new MascotaModel();
       var mascotas = await mascotaModel.searchMascotaByName(req, res, id_usuario);
       if (mascotas.length === 0) {
+
         var id_imagen = '';
 
         if (req.files && Object.keys(req.files).length > 0) {
           var imagen = req.files.imagen;
           id_imagen = (await uploader(imagen.tempFilePath)).public_id
         }
+
         mascotaModel.create(req, res, id_imagen, id_usuario)
       }
       else {
@@ -99,14 +101,14 @@ class MascotaController {
   }
 
   // Method POST : Elimina la mascota por id_mascota
-  // API : http://localhost:3000/eliminar
+  // API : http://localhost:3000/eliminar/:id_mascota
   async eliminar(req, res) {
-    try {    
-      const id_mascota = req.params.id_mascota; 
+    try {
+      const id_mascota = req.params.id_mascota;
       const mascotaModel = new MascotaModel();
       const mascota = await mascotaModel.searchMascotaById(id_mascota);
 
-      if(mascota[0].id_imagen){
+      if (mascota[0].id_imagen) {
         await (destroy(mascota[0].id_imagen));
       }
       await mascotaModel.eliminar(id_mascota);
@@ -116,6 +118,37 @@ class MascotaController {
       return res.status(500).json({ message: 'Hubo un problema con el servidor , intente mas tarde' });
     }
   }
+
+  // Method PUT : Actualiza la información de la mascota por id_mascota
+  // API : http://localhost:3000/actualizar/:id_mascota
+  async actualizar(req, res) {
+    try {
+      const id_mascota = req.params.id_mascota;
+      const mascotaModel = new MascotaModel();
+      const mascota = await mascotaModel.searchMascotaById(id_mascota);
+
+      if (!mascota) {
+        return res.status(404).json({ message: 'Mascota no encontrada' });
+      }
+
+      if (req.files && Object.keys(req.files).length > 0) {
+        var id_imagen = '';
+        var imagen = req.files.imagen;
+        id_imagen = (await uploader(imagen.tempFilePath)).public_id
+
+        if (mascota[0].id_imagen) {
+          await (destroy(mascota[0].id_imagen));
+        }
+
+      }
+
+      mascotaModel.actualizar(id_mascota, req, res, id_imagen)
+
+    } catch (error) {
+      return res.status(500).json({ message: 'Hubo un problema con el servidor, inténtelo más tarde' });
+    }
+  }
+
 }
 
 module.exports = MascotaController;

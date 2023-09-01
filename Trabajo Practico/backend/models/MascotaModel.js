@@ -24,8 +24,8 @@ class MascotaModel {
   }
 
   //Query para buscar una mascota publicada por nombre e id_usuario
-  async searchMascotaByName(req, res,id_usuario) {
-    const { nombre} = req.body;
+  async searchMascotaByName(req, res, id_usuario) {
+    const { nombre } = req.body;
     try {
       const query = 'SELECT * FROM mascotas WHERE 1=1 and nombre = ? and id_usuario = ?';
       const result = pool.query(query, [nombre, id_usuario]);
@@ -48,7 +48,7 @@ class MascotaModel {
   async searchPublicados(id_usuario) {
     try {
       const query = 'SELECT * FROM mascotas WHERE 1=1 AND id_usuario = ?';
-      const result = pool.query(query,[id_usuario]);
+      const result = pool.query(query, [id_usuario]);
       return result;
     } catch (error) {
     }
@@ -68,11 +68,38 @@ class MascotaModel {
   async eliminar(id_mascota) {
     try {
       const query = 'DELETE FROM mascotas WHERE id_mascota = ?';
-      const result = pool.query(query,[id_mascota]);
+      const result = pool.query(query, [id_mascota]);
       return result;
     } catch (error) {
     }
   }
+
+  // Query para actualizar una mascota por id_mascota
+  actualizar(id_mascota,req,res,id_imagen) {
+    try {
+      
+      const { nombre, edad, contacto, tipo, castrado, vacunado, descripcion, provincia } = req.body;
+      let query ;
+      let queryParams;
+      if (id_imagen) {
+         query = 'UPDATE mascotas SET nombre=?, edad=?, contacto=?, castrado=?, vacunado=?, descripcion=?, provincia=?, tipo=?, id_imagen=? WHERE id_mascota=?';
+         queryParams = [nombre, edad, contacto, castrado, vacunado, descripcion, provincia, tipo, id_imagen, id_mascota];
+      } else {
+         query = 'UPDATE mascotas SET nombre=?, edad=?, contacto=?, castrado=?, vacunado=?, descripcion=?, provincia=?, tipo=? WHERE id_mascota=?';
+         queryParams = [nombre, edad, contacto, castrado, vacunado, descripcion, provincia, tipo, id_mascota];
+      }     
+      pool.query(query,queryParams, (error) => {
+        if (error) {
+          return res.status(500).json({ message: 'Hubo un problema al intentar actualizar la información de la mascota, inténtelo de nuevo más tarde' });
+        }
+        return res.status(200).json({ message: 'Mascota actualizada correctamente' });
+      }
+      );
+    } catch (error) {
+
+    }
+  }
+
 
 }
 
