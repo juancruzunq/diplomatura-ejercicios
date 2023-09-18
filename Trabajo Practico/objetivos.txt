@@ -1,8 +1,0 @@
-
-
-
-
--Objetivos 
-
-Al momento de crear un animal se le enviara un correo al email del usuario con confirmacion y los datos de la mascota
-
